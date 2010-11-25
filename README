@@ -1,0 +1,59 @@
+NAME
+    Dpchrist::Term - terminal I/O routines
+
+DESCRIPTION
+    This documentation describes module revision $Revision: 1.10 $.
+
+    This is alpha test level software and may change or disappear at any
+    time.
+
+  SUBROUTINES
+   prompt
+        prompt EXPR,LIST
+
+    Prints EXPR and LIST (in parenthesis) to STDOUT, and waits for user
+    input on STDIN. Returns whatever the user input, or first LIST item if
+    the user presses < Enter >.
+
+    Returns first LIST item if process is not connected to a tty.
+
+  EXPORT
+    None by default.
+
+    All of the subroutines may be imported by using the ':all' tag:
+
+        use Dpchrist::Debug         qw( :all );
+
+    See 'perldoc Export' for everything in between.
+
+INSTALLATION
+        perl Makefile.PL
+        make
+        make test
+        make install
+
+DEPENDENCIES
+        Dpchrist::Module
+
+SEE ALSO
+        "Perl Cookbook", 2 e., Recipe 15.2
+
+AUTHOR
+    David Paul Christensen dpchrist@holgerdanske.com
+
+COPYRIGHT AND LICENSE
+    Copyright 2010 by David Paul Christensen dpchrist@holgerdanske.com
+
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the
+    Free Software Foundation; version 2.
+
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+    Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+
