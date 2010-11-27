@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Dpchrist-Term
-version:            1.012
+version:            1.013
 abstract:           terminal I/O routines
 author:
     - David Paul Christensen <dpchrist@holgerdanske.com>
@@ -11,7 +11,7 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    Dpchrist::Module:  1.025
+    Dpchrist::Module:  1.026
     feature:           0
     Getopt::Long:      0
     Pod::Html:         0
