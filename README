@@ -2,16 +2,28 @@ NAME
     Dpchrist::Term - terminal I/O routines
 
 DESCRIPTION
-    This documentation describes module revision $Revision: 1.15 $.
+    This documentation describes module revision $Revision: 1.18 $.
 
     This is alpha test level software and may change or disappear at any
     time.
 
   SUBROUTINES
+   dot()
+        dot
+
+    Prints a dot (period) at most once per second. Accepts/ consumes no
+    arguments. Returns void.
+
+   echo_system
+        echo_system LIST
+
+    Prints newline, dollar sign, space, LIST items seperated by spaces, and
+    newline to STDOUT, and then passes through call to system().
+
    prompt
         prompt EXPR,LIST
 
-    Prints EXPR and LIST (in parenthesis) to STDOUT, and waits for user
+    Prints EXPR, and LIST in parenthesis, to STDOUT, and waits for user
     input on STDIN. Returns whatever the user input, or first LIST item if
     the user presses < Enter >.
 
@@ -22,7 +34,7 @@ DESCRIPTION
 
     All of the subroutines may be imported by using the ':all' tag:
 
-        use Dpchrist::Debug         qw( :all );
+        use Dpchrist::Term  qw( :all );
 
 INSTALLATION
     Old school:
@@ -34,7 +46,7 @@ INSTALLATION
 
     Minimal:
 
-        $ cpan Dpchrist::Debug
+        $ cpan Dpchrist::Term
 
     Complete:
 

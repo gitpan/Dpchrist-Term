@@ -1,5 +1,5 @@
 #######################################################################
-# $Id: Term.pm,v 1.15 2010-12-03 05:13:51 dpchrist Exp $
+# $Id: Term.pm,v 1.18 2010-12-13 02:03:18 dpchrist Exp $
 #######################################################################
 # package:
 #----------------------------------------------------------------------
@@ -14,6 +14,8 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our %EXPORT_TAGS = ( 'all' => [ qw(
+    dot
+    echo_system
     prompt	    
 ) ] );
 
@@ -21,13 +23,19 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = ();
 
-our $VERSION = sprintf("%d.%03d", q$Revision: 1.15 $ =~ /(\d+)/g);
+our $VERSION = sprintf("%d.%03d", q$Revision: 1.18 $ =~ /(\d+)/g);
 
 #######################################################################
 # uses:
 #----------------------------------------------------------------------
 
 use Data::Dumper;
+
+#######################################################################
+# package lexical variables:
+#----------------------------------------------------------------------
+
+my $dottime = 0;
 
 #######################################################################
 
@@ -38,24 +46,78 @@ Dpchrist::Term - terminal I/O routines
 
 =head1 DESCRIPTION
 
-This documentation describes module revision $Revision: 1.15 $.
+This documentation describes module revision $Revision: 1.18 $.
 
 
 This is alpha test level software
 and may change or disappear at any time.
 
+=cut
+
+#######################################################################
 
 =head2 SUBROUTINES
 
 =cut
 
-#######################################################################
+#======================================================================
+
+=head3 dot()
+
+    dot
+
+Prints a dot (period) at most once per second.
+Accepts/ consumes no arguments.
+Returns void.
+
+=cut
+
+#----------------------------------------------------------------------
+
+sub dot()
+{
+    return if $dottime eq time;
+
+    $dottime = time;
+    print '.';
+
+    return;
+}
+
+#======================================================================
+
+=head3 echo_system
+
+    echo_system LIST
+
+Prints newline,
+dollar sign,
+space,
+LIST items seperated by spaces,
+and newline to STDOUT,
+and then passes through call to system().
+
+=cut
+
+#----------------------------------------------------------------------
+
+sub echo_system
+{
+    print
+	"\n\$ ",
+      	join(' ', @_),
+	"\n";
+    
+    return system @_;
+}
+
+#======================================================================
 
 =head3 prompt
 
     prompt EXPR,LIST
 
-Prints EXPR and LIST (in parenthesis) to STDOUT,
+Prints EXPR, and LIST in parenthesis, to STDOUT,
 and waits for user input on STDIN.
 Returns whatever the user input,
 or first LIST item if the user presses < Enter >.
@@ -110,7 +172,7 @@ None by default.
 
 All of the subroutines may be imported by using the ':all' tag:
 
-    use Dpchrist::Debug		qw( :all );
+    use Dpchrist::Term	qw( :all );
 
 
 =head1 INSTALLATION
@@ -124,7 +186,7 @@ Old school:
 
 Minimal:
 
-    $ cpan Dpchrist::Debug
+    $ cpan Dpchrist::Term
 
 Complete:
 
