@@ -1,5 +1,5 @@
 #######################################################################
-# $Id: Term.pm,v 1.18 2010-12-13 02:03:18 dpchrist Exp $
+# $Id: Term.pm,v 1.19 2010-12-15 00:13:06 dpchrist Exp $
 #######################################################################
 # package:
 #----------------------------------------------------------------------
@@ -23,7 +23,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = ();
 
-our $VERSION = sprintf("%d.%03d", q$Revision: 1.18 $ =~ /(\d+)/g);
+our $VERSION = sprintf("%d.%03d", q$Revision: 1.19 $ =~ /(\d+)/g);
 
 #######################################################################
 # uses:
@@ -46,7 +46,7 @@ Dpchrist::Term - terminal I/O routines
 
 =head1 DESCRIPTION
 
-This documentation describes module revision $Revision: 1.18 $.
+This documentation describes module revision $Revision: 1.19 $.
 
 
 This is alpha test level software

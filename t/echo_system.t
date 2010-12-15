@@ -1,4 +1,4 @@
-# $Id: echo_system.t,v 1.8 2010-12-04 00:39:15 dpchrist Exp $
+# $Id: echo_system.t,v 1.9 2010-12-15 00:13:06 dpchrist Exp $
 
 use Test::More tests => 2;
 
@@ -19,7 +19,7 @@ my $stderr;
 my $stdout;
 
 
-$line = "echo 'hello, world!'";
+$line = "echo hello, world!";
 ($stdout, $stderr) = capture {
     $r = eval { 
 	echo_system $line;
