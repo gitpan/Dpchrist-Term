@@ -1,4 +1,4 @@
-# $Id: echo_system.t,v 1.9 2010-12-15 00:13:06 dpchrist Exp $
+# $Id: echo_system.t,v 1.10 2010-12-16 01:46:26 dpchrist Exp $
 
 use Test::More tests => 2;
 
@@ -28,8 +28,9 @@ $line = "echo hello, world!";
 ok(								#     1
     !$@
     && $r == 0
-    && $stdout =~ /$line\nhello\, world\!\n$/
-    && $stderr eq ''
+    && $stdout
+    && !$stderr,
+    "'echo' should work"
 ) or confess join(' ', __FILE__, __LINE__,
     Data::Dumper->Dump([$line, $r, $stdout, $stderr, $@],
 		     [qw(line   r   stdout   stderr   @)])
@@ -44,10 +45,11 @@ $line = "nosuchcommand";
 ok(								#     2
     !$@
     && $r
-    && $stdout =~ /$line\n$/
-    && $stderr =~ /Can't exec "$line": No such file or directory/
+    && $stdout
+    && $stderr,
+    "nosuchcommand should fail"
 ) or confess join(' ', __FILE__, __LINE__,
-    Data::Dumper->Dump([$line, $r, $stdout, $stderr],
-		     [qw(line   r   stdout   stderr)])
+    Data::Dumper->Dump([$line, $r, $stdout, $stderr, $@],
+		     [qw(line   r   stdout   stderr   @)])
 );
 
