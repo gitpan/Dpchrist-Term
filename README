@@ -2,7 +2,7 @@ NAME
     Dpchrist::Term - terminal I/O routines
 
 DESCRIPTION
-    This documentation describes module revision $Revision: 1.20 $.
+    This documentation describes module revision $Revision: 1.21 $.
 
     This is alpha test level software and may change or disappear at any
     time.

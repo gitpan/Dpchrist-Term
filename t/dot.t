@@ -1,17 +1,18 @@
-# $Id: dot.t,v 1.1 2010-12-04 01:08:41 dpchrist Exp $
-
-use Test::More tests => 2;
+# $Id: dot.t,v 1.3 2010-12-20 06:05:18 dpchrist Exp $
 
 use strict;
 use warnings;
 
+use Test::More tests		=> 2;
+
+use Dpchrist::Term		qw( dot );
 
 use Capture::Tiny		qw( capture );
 use Carp;
 use Data::Dumper;
-use Dpchrist::Term		qw( dot );
 
-$Data::Dumper::Sortkeys = 1;
+$|				= 1;
+$Data::Dumper::Sortkeys		= 1;
 
 my $r;
 my $stderr;

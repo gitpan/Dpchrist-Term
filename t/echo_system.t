@@ -1,17 +1,18 @@
-# $Id: echo_system.t,v 1.10 2010-12-16 01:46:26 dpchrist Exp $
-
-use Test::More tests => 2;
+# $Id: echo_system.t,v 1.12 2010-12-20 06:05:18 dpchrist Exp $
 
 use strict;
 use warnings;
 
+use Test::More tests => 2;
+
+use Dpchrist::Term		qw( echo_system );
 
 use Capture::Tiny		qw( capture );
 use Carp;
 use Data::Dumper;
-use Dpchrist::Term		qw( echo_system );
 
-$Data::Dumper::Sortkeys = 1;
+$|				= 1;
+$Data::Dumper::Sortkeys		= 1;
 
 my $line;
 my $r;
